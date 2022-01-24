@@ -29,7 +29,9 @@ const express = require('express');
 const app = express();
 const product = require('./api/product');
 const file = require('./api/file');
+const corsMiddleware = require('./middleware/cors.middleware');
 
+app.use(corsMiddleware);
 app.use(express.json({extended: false}));
 
 app.use('/api/product', product);
