@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const file = path.resolve('file', 'YuriyL_12.pdf');
 
-router.post('/', (req, res) => {
+router.get('/', async (req, res) => {
 	if (fs.existsSync(file)) {
 		return res.download(file, 'YuriyL.pdf');
 	} else {
