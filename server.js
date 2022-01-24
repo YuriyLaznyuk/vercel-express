@@ -7,11 +7,13 @@ require('dotenv').config();
 const file = path.resolve('file', 'YuriyL_12_eng.pdf');
 
 const PORT = process.env.PORT || 2424;
+app.use(express.json({extended: false}));
+const user = require('./api/user');
 
-app.get('/', (req, res) => {
-	res.json({message: 'server for vercel'});
-});
-
+// app.get('/', (req, res) => {
+// 	res.json({message: 'server for vercel'});
+// });
+app.use('/api/user', user);
 app.get('/api/file', (req, res) => {
 	if (fs.existsSync(file)) {
 		return res.download(file, 'YuriyL_eng.pdf');
