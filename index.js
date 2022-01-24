@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const product = require('./api/product');
+require('dotenv').config();
 const file = require('./api/file');
 const corsMiddleware = require('./middleware/cors.middleware');
 
